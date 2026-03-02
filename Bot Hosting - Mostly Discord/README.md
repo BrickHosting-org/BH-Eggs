@@ -1,0 +1,1 @@
+Deploy and manage automation bots, primarily Discord, with support for TeamSpeak and Telegram. Includes isolated runtimes, dependency handling, and stable execution on PetroPanel.
