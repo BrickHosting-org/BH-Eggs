@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2026-03-01T12:30:09+01:00",
+    "exported_at": "2026-03-13T01:08:12+01:00",
     "name": "Node.js Generic",
     "author": "parker@parkervcp.com",
     "description": "Generic Node.js egg.\r\n\r\nClones a Git repository during install. Defaults to the master branch if none is specified.\r\n\r\nInstalls node_modules automatically. If user_upload is enabled, manual project management is expected.",
@@ -24,7 +24,7 @@
         "Nodejs 25": "ghcr.io\/ptero-eggs\/yolks:nodejs_25"
     },
     "file_denylist": [],
-    "startup": "if [[ -d .git ]] && [[ {{AUTO_UPDATE}} == \"1\" ]]; then git pull; fi; if [[ ! -z ${NODE_PACKAGES} ]]; then \/usr\/local\/bin\/npm install ${NODE_PACKAGES}; fi; if [[ ! -z ${UNNODE_PACKAGES} ]]; then \/usr\/local\/bin\/npm uninstall ${UNNODE_PACKAGES}; fi; if [ -f \/home\/container\/package.json ]; then \/usr\/local\/bin\/npm install; fi; if [[ \"${MAIN_FILE}\" == \"*.js\" ]]; then \/usr\/local\/bin\/node \"\/home\/container\/${MAIN_FILE}\" ${NODE_ARGS}; else \/usr\/local\/bin\/ts-node --esm \"\/home\/container\/${MAIN_FILE}\" ${NODE_ARGS}; fi",
+    "startup": "npm install npm@latest; if [[ -d .git ]] && [[ {{AUTO_UPDATE}} == \"1\" ]]; then git pull; fi; if [[ ! -z ${NODE_PACKAGES} ]]; then \/usr\/local\/bin\/npm install ${NODE_PACKAGES}; fi; if [[ ! -z ${UNNODE_PACKAGES} ]]; then \/usr\/local\/bin\/npm uninstall ${UNNODE_PACKAGES}; fi; if [ -f \/home\/container\/package.json ]; then \/usr\/local\/bin\/npm install; fi; if [[ \"${MAIN_FILE}\" == \"*.js\" ]]; then \/usr\/local\/bin\/node \"\/home\/container\/${MAIN_FILE}\" ${NODE_ARGS}; else \/usr\/local\/bin\/ts-node --esm \"\/home\/container\/${MAIN_FILE}\" ${NODE_ARGS}; fi",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": [\r\n        \"change this text 1\",\r\n        \"change this text 2\"\r\n    ]\r\n}",
